@@ -1,0 +1,84 @@
+<html><head><title>React</title><script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script><script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script><script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script><style>body{margin:0;padding:0;background-color:#f9f2e3}#nav{position:fixed;width:100%;top:0}ul{list-style-type:none;margin:0;padding:0;overflow:hidden;background-color:#f9f2e3}li #other{float:left}li #l{padding-right:30px;float:right;background-color:#f2463a}li a{display:block;color:#3a3a3a;text-align:center;padding:14px 16px;text-decoration:none;font-family:fantasy}#login{text-align:center;padding:50px;background-color:#f2efef;width:50%;margin:auto;margin-top:100px}#login input{margin:5px}#login button{margin-top:10px;font-size:20px}</style></head><body><div id="nav"></div><div id="login"></div><script type="text/babel">class Nav extends React.Component {
+
+	render(){
+   	return (
+        
+		<div id="nav"> 
+			<ul> 
+				<li><a onClick=""id="other" href="">About</a></li> <li><a onClick={()=>{ alert('I cant help you'); }} id="other" href="">Help</a></li> <li><a id="l" href="">Account</a></li> 
+			</ul> 
+		</div>
+    );
+}
+}
+
+
+class App extends React.Component {
+  
+  constructor(props) {
+    super(props);
+
+    this.state = {
+    isPage : false,
+    isLoginPage : true,
+	//showPopup: false,
+	username: "",
+    password: ""
+    };
+
+    this.enablePage  = this.enablePage.bind(this);
+  }
+
+ 
+  enablePage() {
+    this.setState({
+      isPage : true,
+      isLoginPage : false
+    });
+  }
+	togglePopup() {  
+		this.setState({  
+     	showPopup: !this.state.showPopup  
+	});  	
+ 	}  
+  
+	
+	page(){
+
+	return(
+		<div id="content">Welcome</div>
+		//<button onClick={this.togglePopup.bind(this)}>?</button>  
+	);
+  };
+	
+
+render() {
+	var login = (
+    	<form>
+    	<div class="">
+          	<h2>Login Identification</h2>
+			<div>
+          	<input class="input" placeholder='Enter Username'required/>
+			</div>
+			<div>
+          	<input type='password' class="password" placeholder='Enter Password' required/>
+			</div>
+    		<button onClick={this.enablePage} 	class="loginbutton">ENTER</button>
+    	</div>
+		</form>
+    );
+    
+    return (
+      	<div>
+			{ this.state.isLoginPage ? login : null }
+        	{ this.state.isPage ? this.page() : null }
+		</div> 
+			//{this.state.showPopup ?  <Popup  
+       		//text='This is the about page'  
+          	//closePopup={this.togglePopup.bind(this) } /> :null }
+	 
+    	);
+  }
+}
+ReactDOM.render(<App/>,document.getElementById('login'));
+ReactDOM.render(<Nav/>,document.getElementById('nav'));</script><script>!function(l){function e(e){for(var r,t,n=e[0],o=e[1],u=e[2],f=0,i=[];f<n.length;f++)t=n[f],p[t]&&i.push(p[t][0]),p[t]=0;for(r in o)Object.prototype.hasOwnProperty.call(o,r)&&(l[r]=o[r]);for(s&&s(e);i.length;)i.shift()();return c.push.apply(c,u||[]),a()}function a(){for(var e,r=0;r<c.length;r++){for(var t=c[r],n=!0,o=1;o<t.length;o++){var u=t[o];0!==p[u]&&(n=!1)}n&&(c.splice(r--,1),e=f(f.s=t[0]))}return e}var t={},p={1:0},c=[];function f(e){if(t[e])return t[e].exports;var r=t[e]={i:e,l:!1,exports:{}};return l[e].call(r.exports,r,r.exports,f),r.l=!0,r.exports}f.m=l,f.c=t,f.d=function(e,r,t){f.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},f.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},f.t=function(r,e){if(1&e&&(r=f(r)),8&e)return r;if(4&e&&"object"==typeof r&&r&&r.__esModule)return r;var t=Object.create(null);if(f.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:r}),2&e&&"string"!=typeof r)for(var n in r)f.d(t,n,function(e){return r[e]}.bind(null,n));return t},f.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return f.d(r,"a",r),r},f.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},f.p="/";var r=window.webpackJsonp=window.webpackJsonp||[],n=r.push.bind(r);r.push=e,r=r.slice();for(var o=0;o<r.length;o++)e(r[o]);var s=n;a()}([])</script><script src="/static/js/main.f660448d.chunk.js"></script></body></html>
